@@ -1,0 +1,354 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Wealth Advisories</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background:  url('./hunters-race-MYbhN8KaaEc-unsplash.jpg');
+            background-position: center 20%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+            width: 100%;
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+            }
+        }
+
+        .header {
+            background-color: #1a1a1a;
+            padding: 1rem;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            color: #d4af37;
+        }
+
+        nav a {
+            color: #d4af37;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .qa-section {
+            margin-top: 3rem;
+        }
+
+        .qa-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: #f5f5f5;
+        }
+
+        .question {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .answer {
+            color: #333;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 1rem;
+            }
+        }
+
+        .goals-container {
+            background: linear-gradient(to right, #1a1a1a, #2d2d2d);
+            color: #ffffff;
+            padding: 4rem 2rem;
+            border-radius: 10px;
+            margin: 3rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .goals-heading {
+            color: #d4af37;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+
+        .goal-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .goal-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .goal-item p {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .goals-section {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            color: #ffffff;
+            padding: 4rem 2rem;
+            border-radius: 10px;
+            margin: 3rem 0;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .goals-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .goals-heading {
+            color: #d4af37;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .goals-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: #f5f5f5;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #d4af37;
+            color: #000000;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            background-color: #b38f1d;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .goals-heading {
+                font-size: 2rem;
+            }
+            
+            .goals-text {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        .wealth-section {
+            background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+            color: #ffffff;
+            padding: 4rem 2rem;
+            border-radius: 10px;
+            margin: 3rem 0;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .wealth-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .wealth-heading {
+            color: #d4af37;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .wealth-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: #f5f5f5;
+        }
+
+        @media (max-width: 768px) {
+            .wealth-heading {
+                font-size: 2rem;
+            }
+            
+            .wealth-text {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+        }
+
+        .content-section {
+            background: rgba(26, 26, 26, 0.7); /* More transparent background */
+            color: #ffffff;
+            padding: 4rem 2rem;
+            border-radius: 10px;
+            margin: 2rem auto;
+            max-width: 800px; /* Reduced width */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .content-text {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #f5f5f5;
+            padding-bottom: 2rem;
+        }
+
+        .signup-button {
+            display: block;
+            width: fit-content;
+            margin: 3rem auto;
+            background-color: #d4af37;
+            color: #000000;
+            padding: 1.2rem 3rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .signup-button:hover {
+            background-color: #b38f1d;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                margin: 2rem 1rem;
+                padding: 2rem 1rem;
+            }
+            
+            .content-text {
+                font-size: 1rem;
+            }
+        }
+
+        .main-heading-section {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .main-heading {
+            color: #d4af37;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .main-heading {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="-royal-golden-tree-23ffc6da7266ac5155ad95d62cd2b74e.jpeg" alt="Wealth Advisories Logo" class="logo">
+                <h1>Wealth Advisories</h1>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="#services">Services</a>
+                <a href="about.html">About Us</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="main-heading-section">
+        <h1 class="main-heading">Decade of Expertise</h1>
+    </section>
+
+        <section class="content-section">
+            <div class="content-text">
+                With a decade of experience in the financial world, we offer unparalleled expertise in equities, derivatives, and financial planning. Our seasoned professionals excel in navigating complex markets and tailoring personal finance strategies to meet individual goals. We pride ourselves on providing insightful analysis and personalized solutions, ensuring our clients achieve financial stability and growth. Our deep understanding of market dynamics and commitment to transparent, client-focused service have established us as trusted advisors in the financial industry. Whether you're planning for retirement or managing investments, we deliver comprehensive support to help you succeed in your financial journey.
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="content-text">
+                Our comprehensive approach ensures you're on track with personalized financial strategies tailored to your unique needs. We assess your current savings, investment plans, and future aspirations to create a roadmap that aligns with your objectives. By leveraging our expertise in equities, derivatives, and financial planning, we help optimize your savings and investment strategies, providing peace of mind and confidence in achieving your long-term goals. Let us guide you in making informed decisions and maximizing your financial potential for a secure and prosperous future.
+            </div>
+        </section>
+
+        <a href="#signup" class="signup-button">Start Your Journey Today</a>
+    </main>
+</body>
+</html>

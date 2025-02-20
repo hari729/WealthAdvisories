@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Wealth Advisories</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: url('./scott-graham-5fNmWej4tAA-unsplash.jpg');
+            background-position: center 20%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+            width: 100%;
+            color: #ffffff;
+        }
+
+        .header {
+            background-color: #fff300;
+            padding: 0.5rem;
+        }
+
+        .header h1 {
+            color: #000000;
+            font-weight: 600;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #d4af37;
+            color: #1a1a1a;
+        }
+
+        .services-section {
+            background: rgba(41, 41, 41, 0.9);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            margin: 2rem auto;
+            max-width: 1400px;
+            overflow: hidden;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .service-title {
+            color: #d4af37;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .services-section {
+                padding: 2rem 1rem;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 1rem;
+            }
+        }
+
+        .section-heading {
+            color: #d4af37;
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .section-heading {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+            }
+        }
+
+        .quote-section {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background: rgba(26, 26, 26, 0.9);
+            border-radius: 15px;
+        }
+
+        .quote-heading {
+            color: #d4af37;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .quote-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-label {
+            color: #d4af37;
+            font-weight: 500;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            padding: 0.8rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+
+        .form-textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-quote {
+            background-color: #d4af37;
+            color: #000;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-quote:hover {
+            background-color: #b38f1d;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .quote-section {
+                margin: 2rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="-royal-golden-tree-23ffc6da7266ac5155ad95d62cd2b74e.jpeg" alt="Wealth Advisories Logo" class="logo">
+                <h1>Wealth Advisories</h1>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About Us</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="services-section">
+        <h2 class="section-heading">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3 class="service-title">Capital Market Schooling</h3>
+                <p class="service-description">
+                    Capital Market Schooling is our educating arm which involves teaching about financial markets, investment strategies, and asset management. It provides education on trading, risk assessment, portfolio management, and market analysis, equipping individuals with the knowledge to make informed investment decisions and understand the dynamics of capital markets for personal or professional growth.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3 class="service-title">Financial Planning</h3>
+                <p class="service-description">
+                    Financial planning is essential for setting and achieving goals, managing risks, and controlling expenses. It helps with budgeting, saving for the future, reducing debt, and optimizing tax strategies. Planning also ensures retirement readiness, estate management, and provides peace of mind, ultimately guiding you towards financial independence.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3 class="service-title">Equity Portfolio Building</h3>
+                <p class="service-description">
+                    Building an equity portfolio offers long-term growth potential, diversification, and income through dividends. It acts as an inflation hedge, provides ownership benefits, and is generally liquid. Equities offer high return potential and capital appreciation, with possible tax advantages and flexibility to match your investment goals and risk tolerance.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3 class="service-title">Derivatives Diary</h3>
+                <p class="service-description">
+                    Trading derivatives offers leverage for amplified returns, risk management through hedging, and opportunities to profit from price movements without owning the underlying asset. They enhance diversification, provide market access, and enable short selling. Derivatives also facilitate precise pricing and arbitrage opportunities with various flexible instruments.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3 class="service-title">Estate Planning</h3>
+                <p class="service-description">
+                    Our estate planning services include drafting wills and trusts, creating powers of attorney, healthcare directives, and guardianship plans. We provide tax optimization strategies, asset protection, and ensure your wishes are honored. Our personalized approach helps secure your assets and provide peace of mind for you and your loved ones.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="quote-section">
+        <h2 class="quote-heading">Request a Quote</h2>
+        <form class="quote-form">
+            <div class="form-group">
+                <label class="form-label">Select Service</label>
+                <select class="form-select" required>
+                    <option value="">Choose a service...</option>
+                    <option value="consultation">1-on-1 Consultation</option>
+                    <option value="portfolio">Portfolio Building</option>
+                    <option value="membership">Membership Access</option>
+                    <option value="market-schooling">Capital Market Schooling</option>
+                    <option value="financial-planning">Financial Planning</option>
+                    <option value="derivatives">Derivatives Trading</option>
+                    <option value="estate">Estate Planning</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Phone</label>
+                <input type="tel" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Additional Requirements</label>
+                <textarea class="form-textarea"></textarea>
+            </div>
+
+            <button type="submit" class="submit-quote">Request Quote</button>
+        </form>
+    </section>
+</body>
+</html>

@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wealth Advisories</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+        background: url('./micheile-henderson-lZ_4nPFKcV8-unsplash.jpg');
+        background-position: center 40%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        min-height: 100vh;
+        width: 100%;
+        color: #ffffff;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .header {
+      background-color: #000000;
+      color: #d4af37;
+      padding: 0.5rem;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .content {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .footer {
+      background-color: #000000;
+      color: #d4af37;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .btn {
+      background-color: #d4af37;
+      color: #000000;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background-color: #bfa02d;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+    }
+
+    @media (max-width: 768px) {
+        .logo {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    nav a {
+        color: #ffffff;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        margin: 0 0.5rem;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+        background-color: #d4af37;
+        color: #1a1a1a;
+    }
+
+    @media (max-width: 768px) {
+        nav a {
+            display: inline-block;
+            margin: 0.5rem;
+        }
+    }
+
+    .hero-section {
+        padding: 6rem 2rem;
+        text-align: right;
+        margin-bottom: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        animation: backgroundFadeIn 2s ease-out;
+    } 
+
+    @media (max-width: 768px) {
+        .hero-section {
+            background-attachment: scroll;
+            min-height: 60vh;
+            padding: 4rem 1rem;
+        }
+        
+        .hero-heading {
+            font-size: 2.5rem;
+        }
+    }
+
+    @media (orientation: landscape) and (max-height: 500px) {
+        .hero-section {
+            min-height: 100vh;
+        }
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .hero-section {
+            background-image: url('./micheile-henderson-lZ_4nPFKcV8-unsplash.jpg');
+        }
+    }
+
+    .hero-heading {
+        color: #000000;
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        animation: fadeInUp 1s ease;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        max-width: 800px;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .hero-subtitle {
+        color: #ffffff;
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        animation: fadeInUp 1s ease 0.3s;
+        opacity: 0;
+        animation-fill-mode: forwards;
+    }
+
+    .hero-button {
+        display: inline-block;
+        background-color: #d4af37;
+        color: #000000;
+        padding: 1rem 2rem;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        animation: fadeInUp 1s ease 0.6s;
+        opacity: 0;
+        animation-fill-mode: forwards;
+    }
+
+    .hero-button:hover {
+        background-color: #b38f1d;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 768px) {
+        .hero-subtitle {
+            font-size: 1.2rem;
+        }
+    }
+
+    .appointment-section {
+        max-width: 1200px;
+        margin: 4rem auto;
+        padding: 0 2rem;
+    }
+
+    .appointment-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    @media (max-width: 1024px) {
+        .appointment-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .appointment-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .appointment-card {
+        background: rgba(26, 26, 26, 0.9);
+        border-radius: 15px;
+        padding: 0 0 2rem 0;
+        text-align: center;
+        transition: transform 0.3s ease;
+        overflow: hidden;
+    }
+
+    .appointment-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .appointment-title,
+    .appointment-description,
+    .appointment-price,
+    .session-details,
+    .appointment-button {
+        padding: 0 2rem;
+    }
+
+    .appointment-title {
+        color: #d4af37;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+
+    .appointment-description {
+        color: #ffffff;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+
+    .appointment-button {
+        display: inline-block;
+        background-color: #d4af37;
+        color: #000000;
+        padding: 1rem 2rem;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .appointment-button:hover {
+        background-color: #b38f1d;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .appointment-price {
+        color: #ffffff;
+        font-size: 1rem;
+        margin: 1rem 0;
+        opacity: 0.9;
+    }
+
+    .session-details {
+        color: #d4af37;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+        .session-details {
+            font-size: 2rem;
+        }
+    }
+
+    .appointment-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+        transition: transform 0.3s ease;
+    }
+
+    .appointment-card:hover .appointment-image {
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+        .appointment-image {
+            height: 160px;
+        }
+    }
+
+    .appointment-card:last-child {
+        grid-column: 1 / -1;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .appointment-card:last-child .appointment-image {
+        height: 300px;
+    }
+
+    @media (max-width: 768px) {
+        .appointment-card:last-child {
+            max-width: 100%;
+        }
+        
+        .appointment-card:last-child .appointment-image {
+            height: 200px;
+        }
+    }
+
+    .welcome-section {
+        max-width: 1200px;
+        margin: 4rem auto;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        background: rgba(26, 26, 26, 0.8);
+        border-radius: 15px;
+    }
+
+    .welcome-content {
+        flex: 1;
+    }
+
+    .welcome-title {
+        color: #d4af37;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+
+    .welcome-text {
+        color: #ffffff;
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+
+    .welcome-image {
+        flex: 1;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .welcome-section {
+            flex-direction: column;
+            gap: 2rem;
+            padding: 1.5rem;
+        }
+
+        .welcome-title {
+            font-size: 2rem;
+        }
+
+        .welcome-image {
+            width: 100%;
+            height: 300px;
+            transform: scale(2);
+        }
+    }
+
+    .contact-section {
+        max-width: 800px;
+        margin: 4rem auto;
+        padding: 2rem;
+        background: rgba(26, 26, 26, 0.9);
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    .contact-heading {
+        color: #d4af37;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .contact-caption {
+        color: #ffffff;
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .contact-form {
+        display: grid;
+        gap: 1.5rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .form-group {
+        text-align: left;
+    }
+
+    .form-label {
+        display: block;
+        color: #d4af37;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 0.8rem;
+        border: none;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        font-size: 1rem;
+    }
+
+    .form-textarea {
+        height: 150px;
+        resize: vertical;
+    }
+
+    .submit-button {
+        background-color: #d4af37;
+        color: #000000;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .submit-button:hover {
+        background-color: #b38f1d;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 768px) {
+        .contact-section {
+            margin: 2rem;
+            padding: 1.5rem;
+        }
+        
+        .contact-heading {
+            font-size: 2rem;
+        }
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
+    }
+
+    .modal-content {
+        position: relative;
+        background: #fff;
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 2rem;
+        border-radius: 15px;
+    }
+
+    .close-button {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #333;
+    }
+
+    .booking-form {
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    .booking-title {
+        color: #333;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+
+    .submit-booking {
+        background-color: #d4af37;
+        color: #000;
+        padding: 1rem;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: 600;
+    }
+
+    .calendar {
+        margin: 1rem 0;
+    }
+
+    .calendar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding: 0.5rem;
+    }
+
+    .month-display {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #333;
+        text-transform: uppercase;
+    }
+
+    .calendar-nav-btn {
+        background: #d4af37;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .calendar-nav-btn:hover {
+        background: #b38f1d;
+        transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+        .month-display {
+            font-size: 1.2rem;
+        }
+    }
+
+    .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 0.5rem;
+    }
+
+    .calendar-day {
+        padding: 0.5rem;
+        text-align: center;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .weekday-header {
+        font-weight: 600;
+        color: #666;
+        padding: 0.5rem;
+        text-align: center;
+    }
+
+    .calendar-day.available {
+        background: #e8f5e9;
+        color: #2e7d32;
+    }
+
+    .calendar-day.booked {
+        background: #ffebee;
+        color: #c62828;
+        cursor: not-allowed;
+    }
+
+    .calendar-day.selected {
+        background: #d4af37;
+        color: white;
+    }
+
+    .calendar-day:not(.booked):hover {
+        background: #b38f1d;
+        color: white;
+    }
+
+    .time-slots {
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 0.5rem;
+    }
+
+    .time-slot {
+        padding: 0.8rem;
+        text-align: center;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: #e8f5e9;
+        color: #2e7d32;
+    }
+
+    .time-slot:hover {
+        background: #b38f1d;
+        color: white;
+    }
+
+    .time-slot.selected {
+        background: #d4af37;
+        color: white;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-container">
+        <div class="logo-container">
+            <img src="-royal-golden-tree-23ffc6da7266ac5155ad95d62cd2b74e.jpeg" alt="Wealth Advisories Logo" class="logo">
+            <h1 class="text-3xl font-bold">Wealth Advisories</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About Us</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+  </header>
+
+  <section class="hero-section">
+    <div>
+        <h1 class="hero-heading">Making Your Financial Journey a Success</h1>
+        <p class="hero-subtitle">Plan your Goals today! Achieve them tomorrow!</p>
+        <a href="#join" class="hero-button">Join the Community</a>
+    </div>
+  </section>
+
+  <section class="welcome-section">
+    <div class="welcome-content">
+        <h2 class="welcome-title">Welcome to Wealth Advisories</h2>
+        <p class="welcome-text">
+            At Wealth Advisories, our mission is to empower you with the knowledge and tools necessary to achieve your financial goals. Whether you're here to explore investment strategies, manage your portfolio, or enhance your financial literacy, our team is dedicated for providing the expert guidance and personalized support.
+        </p>
+    </div>
+    <img src="./welcome.jpg" alt="Financial Advisory" class="welcome-image">
+  </section>
+
+  <section class="appointment-section">
+    <div class="appointment-grid">
+        <div class="appointment-card">
+            <img src="./gabrielle-henderson-HJckKnwCXxQ-unsplash.jpg" alt="One on One Consultation" class="appointment-image">
+            <h3 class="appointment-title">1-on-1 Consultation</h3>
+            <p class="appointment-description">
+                Get personalized financial advice tailored to your unique situation. Our experts will help create a customized plan to achieve your financial goals.
+            </p>
+            <div class="appointment-price">₹1,500</div>
+            <p class="session-details">2 Hour Session</p>
+            <a href="#book-consultation" class="appointment-button">Book Consultation</a>
+        </div>
+        
+        <div class="appointment-card">
+            <img src="./anne-nygard-tcJ6sJTtTWI-unsplash.jpg" alt="Portfolio Building" class="appointment-image">
+            <h3 class="appointment-title">Portfolio Building</h3>
+            <p class="appointment-description">
+                Let our experienced team help you build a diversified investment portfolio aligned with your risk tolerance and financial objectives.
+            </p>
+            <div class="appointment-price">₹2,500</div>
+            <p class="session-details">2 Hour Session</p>
+            <a href="#build-portfolio" class="appointment-button">Start Building</a>
+        </div>
+        
+        <div class="appointment-card">
+            <img src="./chris-montgomery-smgTvepind4-unsplash.jpg" alt="Expert Lectures" class="appointment-image">
+            <h3 class="appointment-title">Membership Access</h3>
+            <p class="appointment-description">
+                Get exclusive access to our library of expert lectures, covering investment strategies, market analysis, and wealth building techniques. Learn at your own pace with comprehensive educational content.
+            </p>
+            <div class="appointment-price">₹20,000</div>
+            <p class="session-details">Unlimited Access</p>
+            <a href="#join-membership" class="appointment-button">Start Learning</a>
+        </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <h2 class="contact-heading">Contact Us</h2>
+    <p class="contact-caption">Confused? Contact us for more info</p>
+    
+    <form class="contact-form">
+        <div class="form-group">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-input" required>
+        </div>
+        
+        <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" required>
+        </div>
+        
+        <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-input form-textarea" required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-button">Send Message</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2024 Wealth Advisories. All rights reserved.</p>
+  </footer>
+
+  <div id="bookingModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h3 class="booking-title">Schedule Appointment</h3>
+        <form class="booking-form">
+            <div class="calendar">
+                <div class="calendar-header">
+                    <button class="calendar-nav-btn" id="prevMonth">&lt;</button>
+                    <h4 class="month-display" id="currentMonth"></h4>
+                    <button class="calendar-nav-btn" id="nextMonth">&gt;</button>
+                </div>
+                <div class="calendar-grid">
+                    <div class="weekday-header">Sun</div>
+                    <div class="weekday-header">Mon</div>
+                    <div class="weekday-header">Tue</div>
+                    <div class="weekday-header">Wed</div>
+                    <div class="weekday-header">Thu</div>
+                    <div class="weekday-header">Fri</div>
+                    <div class="weekday-header">Sat</div>
+                </div>
+                <div class="time-slots" id="timeSlots"></div>
+            </div>
+            
+            <button type="submit" class="submit-booking">Confirm Booking</button>
+        </form>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('bookingModal');
+    const closeBtn = document.querySelector('.close-button');
+    const dateInput = document.getElementById('appointmentDate');
+    const timeInput = document.getElementById('appointmentTime');
+
+    // Set default date and time
+    function setDefaultDateTime() {
+        const now = new Date();
+        const date = now.toISOString().split('T')[0];
+        const time = now.toTimeString().slice(0,5);
+        dateInput.value = date;
+        timeInput.value = time;
+        dateInput.min = date; // Prevent past dates
+    }
+
+    // Open modal with current date/time
+    function openModal() {
+        modal.style.display = 'block';
+        setDefaultDateTime();
+    }
+
+    // Close modal
+    closeBtn.onclick = () => modal.style.display = 'none';
+    window.onclick = (e) => {
+        if (e.target == modal) modal.style.display = 'none';
+    }
+
+    // Update appointment buttons to open modal
+    document.querySelectorAll('.appointment-button').forEach(button => {
+        button.onclick = (e) => {
+            e.preventDefault();
+            openModal();
+        }
+    });
+
+    class Calendar {
+        constructor() {
+            this.currentDate = new Date();
+            this.selectedDate = null;
+            this.selectedTime = null;
+            this.init();
+        }
+
+        init() {
+            this.renderCalendar();
+            this.attachEventListeners();
+        }
+
+        renderCalendar() {
+            const year = this.currentDate.getFullYear();
+            const month = this.currentDate.getMonth();
+            
+            // Update month and year display
+            document.getElementById('currentMonth').textContent = 
+                this.currentDate.toLocaleDateString('default', { 
+                    month: 'long', 
+                    year: 'numeric'
+                });
+            
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            
+            const calendarGrid = document.querySelector('.calendar-grid');
+            const daysHtml = [...Array(firstDay.getDay())].map(() => 
+                `<div class="calendar-day"></div>`).join('');
+
+            const monthDaysHtml = [...Array(lastDay.getDate())].map((_, i) => {
+                const date = new Date(year, month, i + 1);
+                const isAvailable = this.checkAvailability(date);
+                const isSelected = this.selectedDate?.toDateString() === date.toDateString();
+                
+                return `
+                    <div class="calendar-day ${isAvailable ? 'available' : 'booked'} 
+                                ${isSelected ? 'selected' : ''}"
+                         data-date="${date.toISOString()}">
+                        ${i + 1}
+                    </div>`;
+            }).join('');
+
+            calendarGrid.innerHTML = document.querySelectorAll('.weekday-header').length ? 
+                monthDaysHtml : daysHtml + monthDaysHtml;
+        }
+
+        checkAvailability(date) {
+            // Mock availability check - implement with real data
+            return date >= new Date();
+        }
+
+        attachEventListeners() {
+            document.getElementById('prevMonth').addEventListener('click', () => {
+                this.currentDate.setMonth(this.currentDate.getMonth() - 1);
+                this.renderCalendar();
+            });
+
+            document.getElementById('nextMonth').addEventListener('click', () => {
+                this.currentDate.setMonth(this.currentDate.getMonth() + 1);
+                this.renderCalendar();
+            });
+
+            document.querySelector('.calendar-grid').addEventListener('click', (e) => {
+                if (e.target.classList.contains('available')) {
+                    this.selectedDate = new Date(e.target.dataset.date);
+                    this.renderCalendar();
+                    this.renderTimeSlots();
+                }
+            });
+        }
+
+        renderTimeSlots() {
+            const timeSlots = document.getElementById('timeSlots');
+            const slots = this.getAvailableTimeSlots();
+            
+            timeSlots.innerHTML = slots.map(slot => `
+                <div class="time-slot ${this.selectedTime === slot ? 'selected' : ''}"
+                     data-time="${slot}">
+                    ${slot}
+                </div>
+            `).join('');
+
+            // Add click handlers for time slots
+            timeSlots.querySelectorAll('.time-slot').forEach(slot => {
+                slot.addEventListener('click', () => {
+                    timeSlots.querySelectorAll('.time-slot').forEach(s => 
+                        s.classList.remove('selected')
+                    );
+                    slot.classList.add('selected');
+                    this.selectedTime = slot.dataset.time;
+                });
+            });
+        }
+
+        getAvailableTimeSlots() {
+            // Mock time slots - implement with real data
+            return ['9:00 AM', '10:00 AM', '11:00 AM', '2:00 PM', '3:00 PM', '4:00 PM'];
+        }
+    }
+
+    // Update the appointment button click handlers
+    document.querySelectorAll('.appointment-button').forEach(button => {
+        button.onclick = (e) => {
+            e.preventDefault();
+            
+            // Check if button is for membership
+            if (e.target.closest('.appointment-card:last-child')) {
+                // Redirect to membership signup or payment page
+                window.location.href = "#join-membership";
+                return;
+            }
+            
+            // Show calendar modal only for consultation and portfolio
+            modal.style.display = 'block';
+            new Calendar();
+        }
+    });
+  </script>
+</body>
+</html>
